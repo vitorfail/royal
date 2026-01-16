@@ -12,7 +12,9 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        .show{
+            opacity: 0;
+        }
         :root {
             --dark-bg: #0a0a0a;
             --dark-card: #1C1A1B;
@@ -65,19 +67,23 @@
             border-radius: 30px;
             padding: 10px 25px;
             font-size: 25px;
-            background: linear-gradient(to right, var(--gold),var(--gold), var(--light-gold),var(--gold),var(--gold));
             text-decoration: none;
             font-weight: 700;
             color: #0a0a0a;
         }
+        .cta,.cta-button{
+            background: linear-gradient(56deg, var(--gold), var(--gold), var(--light-gold), var(--gold), var(--gold));
+            /* background: linear-gradient(56deg, var(--secondary)); */
+            background-size: 400%;
+            animation: changeGradientAnimation 9s ease-in-out infinite;
+        }
         .cta-button {
-            background: linear-gradient(135deg, var(--gold), #b8941f);
             color: var(--dark-bg);
             border: none;
             padding: 12px 30px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -99,6 +105,20 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+        .hero .cta-button{
+        }
+        @keyframes changeGradientAnimation {
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 400%;
+            }
+            100% {
+                background-position: 0%;
+            }
         }
         .hero img{
             width: 300px;
@@ -122,7 +142,6 @@
             color: transparent;
             line-height: 1.2;
         }
-
         .hero p {
             font-size: 1.2rem;
             color: white;
@@ -194,6 +213,7 @@
             width: 100%;
         }
         .items .item{
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -219,6 +239,28 @@
             padding: 20px;
             border: 2px solid var(--gold);
             border-radius: 50%;
+        }
+        .cont-2  .item:nth-of-type(1) i::after{
+            position: absolute;
+            content:"";
+            width: 300px;
+            right: -100%;
+            height: 3px;
+            background: linear-gradient(56deg, var(--gold), var(--gold), var(--light-gold), var(--gold), var(--gold));
+            /* background: linear-gradient(56deg, var(--secondary)); */
+            background-size: 400%;
+            animation: changeGradientAnimation 9s ease-in-out infinite;
+        }
+        .cont-2 .item:nth-of-type(2) i::after{
+            position: absolute;
+            content:"";
+            width: 300px;
+            right: -100%;
+            height: 3px;
+            background: linear-gradient(56deg, var(--gold), var(--gold), var(--light-gold), var(--gold), var(--gold));
+            /* background: linear-gradient(56deg, var(--secondary)); */
+            background-size: 400%;
+            animation: changeGradientAnimation 9s ease-in-out infinite;
         }
         .items p{
             color: white;
@@ -286,19 +328,16 @@
             width: 50%;
             height: auto;
             right: 0;
-              mask-image:linear-gradient(to top left,black 4%,transparent 100%,transparent 100%);
+            mask-image:linear-gradient(to top left,black 4%,transparent 100%,transparent 100%);
         }
-        
         .benefits {
             padding: 80px 0;
         }
-
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
-
         .benefit-card {
             background-color: var(--dark-card);
             border-radius: 10px;
@@ -307,34 +346,28 @@
             border: 1px solid rgba(212, 175, 55, 0.1);
             transition: transform 0.3s ease;
         }
-
         .benefit-card:hover {
             transform: translateY(-10px);
             border-color: rgba(212, 175, 55, 0.3);
         }
-
         .benefit-icon {
             font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 20px;
         }
-
         .benefit-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--gold);
         }
-
         .benefit-card p {
             color: var(--text-gray);
         }
-
         /* How It Works */
         .how-it-works {
             padding: 80px 0;
             background-color: rgba(0, 0, 0, 0.4);
         }
-
         .steps {
             display: flex;
             justify-content: center;
@@ -400,7 +433,9 @@
             padding: 25px;
             width: 30%;
         }
-
+        .vip-benefit i {
+            padding-right: 5px;
+        }
         .vip-icon {
             font-size: 2rem;
             color: var(--gold);
@@ -408,7 +443,7 @@
         }
 
         .vip-benefit h3 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin: 20px 0px;
             color: var(--gold);
         }
@@ -601,16 +636,31 @@
             .cta{
                 font-size: 20px;
             }
+            .cont-2 .item:nth-of-type(1) i::after{
+                width: 3px;
+                height: 50px;
+                top: 100%;
+                right: initial;
+            }
+            .cont-2 .item:nth-of-type(2) i::after{
+                width: 3px;
+                height: 50px;
+                top: 100%;
+                right: initial;
+            }
+            .cont-2 .item{
+                margin: 20px 0px;
+            }
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <div class="container">
+        <div class="container show">
             <img src="royal.png"/>
             <h1>Comunidade VIP de Relógios de Luxo</h1>
             <p>Tenha acesso antecipado a ofertas exclusivas, cupons especiais e reposições em primeira mão das melhores marcas de relógios de luxo.</p>
-            <a href="#vip" class="cta-button">Quero Entrar na Comunidade</a>
+            <a href="#vip" class="cta-button"><i class="fa-brands fa-whatsapp"></i> Quero Entrar na Comunidade</a>
         </div>
         <video 
             autoplay 
@@ -625,53 +675,53 @@
     <section class="cont-1">
         <div class="linha"></div>
         <div class="container">
-            <h2 class="section-title">O que você ganha ao entrar</h2>
-            <div class="risco-container">
+            <h2 class="section-title show">O que você ganha ao entrar</h2>
+            <div class="risco-container show">
                 <div class="risco"></div>
                 <img class="icon" src="pad.png"/>
                 <div class="risco"></div>
             </div>
             <div class="items">
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-paper-plane"></i>
                     <h2>Acesso antecipado</h2>
                     <p>Veja ofertas de forma antecipado antes de irem para o site</p>
                 </div>
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-star"></i>
                     <h2>Exclusividade Real</h2>
                     <p>Condições e cupons liberadas apenas para membros</p>
                 </div>
-                <div class="item">
+                <div class="item show">
                     <i class="fa-regular fa-paper-plane"></i>
                     <h2>Reposições em primeira mão</h2>
                     <p>Entrou no grupo? Você Recebe o aviso em primeira mão </p>
                 </div>
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-boxes-packing"></i>
                     <h2>Curadoria Royal Chrono</h2>
                     <p>Sugestões para cada ocasião: social, casual, esportivo. Encontre o relógio perfeito para você.</p>
                 </div>
             </div>
             <div class="vantagens">
-                <p>
+                <p class="show">
                     <i class="fa-solid fa-check"></i>
                     Ações e cupons exclusivos para membros
                 </p>
-                <p class="destaque">
+                <p class="destaque show">
                     <i class="fa-solid fa-check"></i>
                     Aviso de reposição(quando houver estoque). 
                 </p>
-                <p class="destaque">
+                <p class="destaque show">
                     <i class="fa-solid fa-check"></i>
                     Ofertas relâmpago com tempo limitado
                 </p>
-                <p class="destaque">
+                <p class="destaque show">
                     <i class="fa-solid fa-check"></i>
                     Conteúdo rápido: Como escolher o relógio certo(sem enrolação)
                 </p>
             </div>
-            <a class="cta" href="#">Quero acesso aos relógios</a>
+            <a class="cta show" href="#">Quero acesso aos relógios</a>
             <p style="color: var(--gold); padding: 20px 0px;">Sem spam. Você pode sair quando quiser.</p>
         </div>
         <img id="img" src="relogio.png">
@@ -679,27 +729,27 @@
     <section class="how-it-works cont-2">
         <div class="linha"></div>
         <div class="container">
-            <h2 class="section-title">Como funciona (é bem simples)</h2>
-            <div class="risco-container">
+            <h2 class="section-title show">Como funciona (é bem simples)</h2>
+            <div class="risco-container show">
                 <div class="risco"></div>
                 <img class="icon" src="pad.png"/>
                 <div class="risco"></div>
             </div>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--text-gray);">
+            <p class="show" style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--text-gray);">
                 Receba pelo WhatsApp avisos e ofertas exclusivas antes de todo mundo.
             </p>
             <div class="items">
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-1"></i>
                     <h2 style="color: white;">Você se cadastra</h2>
                     <p>Veja ofertas de forma antecipado antes de irem para o site</p>
                 </div>
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-2"></i>
                     <h2 style="color: white;">Exclusividade Real</h2>
-                    <p>Condições e cupons liberadas apenas para membros</p>
+                    <p>Você recebe ofertas imperdíveis de relógios</p>
                 </div>
-                <div class="item">
+                <div class="item show">
                     <i class="fa-solid fa-3"></i>
                     <h2 style="color: white;">Reposições em primeira mão</h2>
                     <p>Entrou no grupo? Você Recebe o aviso em primeira mão </p>
@@ -707,7 +757,7 @@
 
             </div>
             <img id="img" src="relogio1.png">
-            <div style="text-align: center; margin-top: 50px;">
+            <div class="show" style="text-align: center; margin-top: 50px;">
                 <a href="#vip" class="cta-button">Entrar Agora</a>
             </div>
         </div>
@@ -715,34 +765,34 @@
     <section id="vip" class="vip-section cont-3">
         <div class="linha"></div>
         <div class="container">
-            <h2 class="section-title">Entre para a Lista VIP</h2>
-            <p style="max-width: 700px; margin: 0 auto 30px; color: var(--text-gray); text-align: center;">
+            <h2 class="section-title show">Entre para a Lista VIP</h2>
+            <p class="show" style="max-width: 700px; margin: 0 auto 30px; color: var(--text-gray); text-align: center;">
                 Receba pelo WhatsApp avisos e ofertas exclusivas antes de todo mundo. Vagas limitadas para manter a qualidade da comunidade.
             </p>
             
             <div class="vip-benefits">
-                <div class="vip-benefit">
+                <div class="vip-benefit show">
                     <div class="img"></div>
                     <h3>🔥Ação Relâmpago</h3>
                     <p>Ofertas com tempo limitado e descontos especiais disponíveis apenas por <strong>algumas horas</strong>.</p>
                 </div>
-                <div class="vip-benefit">
+                <div class="vip-benefit show">
                     <div class="img"></div>
                     <h3> <i class="fa-brands fa-whatsapp"></i>Reposição</h3>
                     <p>Seja avisado quando modelos <strong>esgotados</strong> voltarem ao estoque. Garanta o seu antes que acabe novamente.</p>
                 </div>
-                <div class="vip-benefit">
+                <div class="vip-benefit show">
                     <div class="img"></div>
                     <h3> <i class="fa-solid fa-gift"></i>Cupom VIP</h3>
                     <p>Descontos especiais apenas para membros da comunidade, <strong>com valores limitados por cliente</strong>.</p>
                 </div>
             </div>
             
-            <div style="margin: 40px 0;">
+            <div class="show" style="margin: 40px 0;">
                 <a href="#form" class="cta-button" style="font-size: 1.2rem; padding: 15px 40px;">Quero Ser VIP</a>
             </div>
             
-            <p style="color: var(--text-gray); font-style: italic; max-width: 600px; margin: 0 auto;">
+            <p class="show" style="color: var(--text-gray); font-style: italic; max-width: 600px; margin: 0 auto;">
                 Sem spam. Você pode sair quando quiser. Respeitamos sua privacidade.
             </p>
         </div>
@@ -750,7 +800,7 @@
     </section>
     <section class="faq">
         <div class="linha"></div>
-        <div class="container">
+        <div class="container show">
             <h2 class="section-title">Perguntas Frequentes</h2>
             <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-gray);">
                 As ações da comunidade têm vagas limitadas para manter o canal útil e sem bagunça.
@@ -830,27 +880,7 @@
         });
         
         // Simulação de formulário de inscrição
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if(this.getAttribute('href') === '#vip' || this.getAttribute('href') === '#form') {
-                    e.preventDefault();
-                    
-                    // Simulando um modal de inscrição
-                    const name = prompt("Para entrar na comunidade VIP, digite seu nome:");
-                    if(name) {
-                        const phone = prompt("Agora digite seu WhatsApp (com DDD):");
-                        if(phone) {
-                            const channel = prompt("Escolha o canal (1 para WhatsApp, 2 para Telegram, 3 para ambos):");
-                            let channelText = "WhatsApp";
-                            if(channel === "2") channelText = "Telegram";
-                            if(channel === "3") channelText = "WhatsApp e Telegram";
-                            
-                            alert(`Obrigado, ${name}! Você acaba de entrar para a Comunidade VIP Royal Crono.\n\nEm instantes você receberá uma mensagem no ${channelText} com as boas-vindas e sua primeira oferta exclusiva.`);
-                        }
-                    }
-                }
-            });
-        });
+
         const faqQuestions = document.querySelectorAll('.faq-question');
         faqQuestions.forEach(question => {
             question.addEventListener('click', function() {
@@ -876,6 +906,47 @@
                 }
             });
         });
+            // Seleciona todos os elementos com a classe "show"
+        const elementos = document.querySelectorAll('.show');
+        
+        // Configuração inicial dos elementos
+        elementos.forEach(elemento => {
+            elemento.style.opacity = '0';
+            elemento.style.transform = 'translateY(50px)';
+            elemento.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        // Verifica se os elementos estão visíveis na tela
+        function verificarVisibilidade() {
+            elementos.forEach(elemento => {
+                if (!elemento.classList.contains('mostrando')) {
+                    const retangulo = elemento.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // Se o elemento estiver visível na tela
+                    if (retangulo.top <= windowHeight - 50) {
+                        elemento.classList.add('mostrando');
+                        
+                        // Adiciona um pequeno delay para o efeito cascata
+                        const delay = Array.from(elementos).indexOf(elemento) * 2;
+                        
+                        setTimeout(() => {
+                            elemento.style.opacity = '1';
+                            elemento.style.transform = 'translateY(0)';
+                        }, delay);
+                    }
+                }
+            });
+        }
+        
+        // Verifica a visibilidade quando a página carrega
+        verificarVisibilidade();
+        
+        // Verifica a visibilidade quando o usuário faz scroll
+        window.addEventListener('scroll', verificarVisibilidade);
+        
+        // Verifica também quando a janela é redimensionada
+        window.addEventListener('resize', verificarVisibilidade);
     </script>
 </body>
 </html>
