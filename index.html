@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Crono - Comunidade VIP de Relógios de Luxo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-card: #1C1A1B;
+            --gold: #d2a463;
+            --light-gold: #fff8d3;
+            --text-light: #f5f5f5;
+            --text-gray: #cccccc;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+        .cta{
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-size: 25px;
+            background: linear-gradient(to right, var(--gold),var(--gold), var(--light-gold),var(--gold),var(--gold));
+            text-decoration: none;
+            font-weight: 700;
+            color: #0a0a0a;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold), #b8941f);
+            color: var(--dark-bg);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            height: 95vh;
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero img{
+            width: 300px;
+            height: auto;
+        }
+        .hero video{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+        .hero h1 {
+            text-shadow:unset 10px 10px 15px black;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        section{
+            position: relative;
+            padding: 20px 0px;
+            overflow: hidden;
+        }
+        section .linha{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            opacity: 0.5;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                var(--light-gold) 10%,
+                var(--light-gold) 90%,
+                transparent 100%
+            );
+        }
+        /* Benefits Section */
+        .section-title {
+            font-family:'Times New Roman', Times, serif ;
+            background: linear-gradient(to right, var(--gold),var(--gold), var(--light-gold),var(--gold),var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            background-clip: text;
+            position: relative;
+        }
+        .risco-container{
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .risco-container .icon{
+            background: #0a0a0a;
+            height: 10px;
+            width: auto;
+        }
+        .risco {
+            width: 46%;
+            height: 1px;
+            opacity: 0.5;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                var(--light-gold) 10%,
+                var(--light-gold) 90%,
+                transparent 100%
+            );
+        }
+        .items{
+            display: flex;
+            text-align: center;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-top: 40px;
+            width: 100%;
+        }
+        .items .item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 22%;
+        }
+        .items h2{
+            margin: 20px 0px;
+            font-size: 30px;
+            color: transparent;
+            background: linear-gradient(to right, var(--gold),var(--gold), var(--light-gold),var(--gold),var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            line-height: 1.1;
+        }
+        .items i{
+            font-size: 30px;
+            display: flex;
+            width: 70px;
+            height: 70px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+        }
+        .items p{
+            color: white;
+        }
+        .items .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--gold);
+        }
+        .vantagens{
+            font-size: 25px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            margin: 30px 0px;
+            width: 50%;
+        }
+        .vantagens i{
+            color: var(--gold);
+        }
+        .vantagens .destaque{
+            color: transparent;
+            background: linear-gradient(to right, var(--gold),var(--light-gold), var(--light-gold),var(--light-gold),var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .cont-1 #img{
+            opacity: 0.1;
+            z-index: -1;
+            position: absolute;
+            content: "";
+            bottom: 0;
+            width: 30%;
+            height: auto;
+            right: 10%;
+              mask-image: linear-gradient(
+            to top left,
+            black 10%,
+            transparent 100%
+            );
+        }
+        .cont-3 #img{
+            opacity: 0.1;
+            z-index: -1;
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: auto;
+              mask-image: linear-gradient(
+            to top left,
+            black 10%,
+            transparent 100%
+            );
+        }
+        .cont-2 #img{
+            opacity: 1;
+            z-index: -1;
+            position: absolute;
+            content: "";
+            bottom: 0;
+            width: 50%;
+            height: auto;
+            right: 0;
+              mask-image:linear-gradient(to top left,black 4%,transparent 100%,transparent 100%);
+        }
+        
+        .benefits {
+            padding: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 280px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--gold);
+            color: var(--dark-bg);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .step p {
+            color: var(--text-gray);
+        }
+
+        /* VIP Section */
+        .vip-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .vip-benefits {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .vip-benefit {
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            padding: 25px;
+            width: 30%;
+        }
+
+        .vip-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .vip-benefit h3 {
+            font-size: 1.3rem;
+            margin: 20px 0px;
+            color: var(--gold);
+        }
+        .vip-benefit strong{
+            color: var(--gold);
+        }
+        .vip-benefit p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        .vip-benefit .img{
+            border-radius: 20px;
+            width: 100%;
+            height: 280px;
+        }
+        .vip-benefit:nth-of-type(1) .img{
+            background-image: url("example1.jpg");
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .vip-benefit:nth-of-type(2) .img{
+            background-image: url("example2.jpg");
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .vip-benefit:nth-of-type(3) .img{
+            background-image: url("example3.png");
+            background-size: auto;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Examples Section */
+        .faq {
+            padding: 80px 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--dark-card);
+            border-radius: 10px;
+            padding: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #e6c260;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--gold);
+            font-size: 1rem;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-gray);
+        }
+
+        .faq-answer.show {
+            max-height: 200px; /* Ajuste conforme necessário */
+            padding-bottom: 20px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Para animação mais suave */
+        .faq-answer {
+            will-change: max-height;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-gray);
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero{
+                height: 90vh;
+            }
+            .hero video{
+                height: 100%;
+                width: auto;
+                left: -30px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 350px;
+            }
+            .items .item{
+                width: 100%;
+                padding: 20px 0px;
+            }
+            .items h2{
+                font-size: 20px;
+            }
+            .items{
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .vantagens{
+                width: 100%;
+                font-size: 100%;
+            }
+            .cont-1 #img{
+                width: 100%;
+            }
+            .cont-2 #img{
+                width: 100%;
+            }
+            .vip-benefits{
+                width: 100%;
+                flex-direction: column;
+            }
+            .vip-benefits .vip-benefit{
+                width: 100%;
+            }
+            .risco-container{
+                width: 90%;
+            }
+            .cta{
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <img src="royal.png"/>
+            <h1>Comunidade VIP de Relógios de Luxo</h1>
+            <p>Tenha acesso antecipado a ofertas exclusivas, cupons especiais e reposições em primeira mão das melhores marcas de relógios de luxo.</p>
+            <a href="#vip" class="cta-button">Quero Entrar na Comunidade</a>
+        </div>
+        <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="meu-video">
+            <source src="hero1.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+    </section>
+    <section class="cont-1">
+        <div class="linha"></div>
+        <div class="container">
+            <h2 class="section-title">O que você ganha ao entrar</h2>
+            <div class="risco-container">
+                <div class="risco"></div>
+                <img class="icon" src="pad.png"/>
+                <div class="risco"></div>
+            </div>
+            <div class="items">
+                <div class="item">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <h2>Acesso antecipado</h2>
+                    <p>Veja ofertas de forma antecipado antes de irem para o site</p>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-star"></i>
+                    <h2>Exclusividade Real</h2>
+                    <p>Condições e cupons liberadas apenas para membros</p>
+                </div>
+                <div class="item">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <h2>Reposições em primeira mão</h2>
+                    <p>Entrou no grupo? Você Recebe o aviso em primeira mão </p>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-boxes-packing"></i>
+                    <h2>Curadoria Royal Chrono</h2>
+                    <p>Sugestões para cada ocasião: social, casual, esportivo. Encontre o relógio perfeito para você.</p>
+                </div>
+            </div>
+            <div class="vantagens">
+                <p>
+                    <i class="fa-solid fa-check"></i>
+                    Ações e cupons exclusivos para membros
+                </p>
+                <p class="destaque">
+                    <i class="fa-solid fa-check"></i>
+                    Aviso de reposição(quando houver estoque). 
+                </p>
+                <p class="destaque">
+                    <i class="fa-solid fa-check"></i>
+                    Ofertas relâmpago com tempo limitado
+                </p>
+                <p class="destaque">
+                    <i class="fa-solid fa-check"></i>
+                    Conteúdo rápido: Como escolher o relógio certo(sem enrolação)
+                </p>
+            </div>
+            <a class="cta" href="#">Quero acesso aos relógios</a>
+            <p style="color: var(--gold); padding: 20px 0px;">Sem spam. Você pode sair quando quiser.</p>
+        </div>
+        <img id="img" src="relogio.png">
+    </section>
+    <section class="how-it-works cont-2">
+        <div class="linha"></div>
+        <div class="container">
+            <h2 class="section-title">Como funciona (é bem simples)</h2>
+            <div class="risco-container">
+                <div class="risco"></div>
+                <img class="icon" src="pad.png"/>
+                <div class="risco"></div>
+            </div>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: var(--text-gray);">
+                Receba pelo WhatsApp avisos e ofertas exclusivas antes de todo mundo.
+            </p>
+            <div class="items">
+                <div class="item">
+                    <i class="fa-solid fa-1"></i>
+                    <h2 style="color: white;">Você se cadastra</h2>
+                    <p>Veja ofertas de forma antecipado antes de irem para o site</p>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-2"></i>
+                    <h2 style="color: white;">Exclusividade Real</h2>
+                    <p>Condições e cupons liberadas apenas para membros</p>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-3"></i>
+                    <h2 style="color: white;">Reposições em primeira mão</h2>
+                    <p>Entrou no grupo? Você Recebe o aviso em primeira mão </p>
+                </div>
+
+            </div>
+            <img id="img" src="relogio1.png">
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#vip" class="cta-button">Entrar Agora</a>
+            </div>
+        </div>
+    </section>
+    <section id="vip" class="vip-section cont-3">
+        <div class="linha"></div>
+        <div class="container">
+            <h2 class="section-title">Entre para a Lista VIP</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px; color: var(--text-gray); text-align: center;">
+                Receba pelo WhatsApp avisos e ofertas exclusivas antes de todo mundo. Vagas limitadas para manter a qualidade da comunidade.
+            </p>
+            
+            <div class="vip-benefits">
+                <div class="vip-benefit">
+                    <div class="img"></div>
+                    <h3>🔥Ação Relâmpago</h3>
+                    <p>Ofertas com tempo limitado e descontos especiais disponíveis apenas por <strong>algumas horas</strong>.</p>
+                </div>
+                <div class="vip-benefit">
+                    <div class="img"></div>
+                    <h3> <i class="fa-brands fa-whatsapp"></i>Reposição</h3>
+                    <p>Seja avisado quando modelos <strong>esgotados</strong> voltarem ao estoque. Garanta o seu antes que acabe novamente.</p>
+                </div>
+                <div class="vip-benefit">
+                    <div class="img"></div>
+                    <h3> <i class="fa-solid fa-gift"></i>Cupom VIP</h3>
+                    <p>Descontos especiais apenas para membros da comunidade, <strong>com valores limitados por cliente</strong>.</p>
+                </div>
+            </div>
+            
+            <div style="margin: 40px 0;">
+                <a href="#form" class="cta-button" style="font-size: 1.2rem; padding: 15px 40px;">Quero Ser VIP</a>
+            </div>
+            
+            <p style="color: var(--text-gray); font-style: italic; max-width: 600px; margin: 0 auto;">
+                Sem spam. Você pode sair quando quiser. Respeitamos sua privacidade.
+            </p>
+        </div>
+        <img id="img" src="foto2.png">
+    </section>
+    <section class="faq">
+        <div class="linha"></div>
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-gray);">
+                As ações da comunidade têm vagas limitadas para manter o canal útil e sem bagunça.
+            </p>
+            
+            <div class="faq-content">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Frete grátis em compras acima de R$ 5.000</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Condição especial para membros VIP em relógios selecionados. Esta vantagem é exclusiva para membros da comunidade e aplica-se apenas em compras diretas conosco.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Desconto de 15% em nova coleção</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cupom exclusivo para pré-venda da nova linha de relógios esportivos. O desconto é válido por 48 horas após o lançamento e pode ser combinado com outras promoções.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Aviso de reposição: Rolex Datejust 41mm</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Alerta quando o modelo esgotado há 6 meses voltar ao estoque (apenas 3 unidades). Você receberá uma notificação por WhatsApp assim que os relógios estiverem disponíveis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Conteúdo exclusivo: Como escolher o relógio certo</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Guia rápido sem enrolação para acertar na escolha do seu próximo relógio de luxo. Inclui dicas sobre tamanho, estilo, ocasião e manutenção dos relógios premium.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Royal Crono</div>
+            <p class="footer-text">Comunidade VIP exclusiva para entusiastas de relógios de luxo. Oferecemos acesso antecipado a ofertas, cupons exclusivos e conteúdo especializado.</p>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">
+                &copy; 2023 Royal Crono. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Simulação de formulário de inscrição
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#vip' || this.getAttribute('href') === '#form') {
+                    e.preventDefault();
+                    
+                    // Simulando um modal de inscrição
+                    const name = prompt("Para entrar na comunidade VIP, digite seu nome:");
+                    if(name) {
+                        const phone = prompt("Agora digite seu WhatsApp (com DDD):");
+                        if(phone) {
+                            const channel = prompt("Escolha o canal (1 para WhatsApp, 2 para Telegram, 3 para ambos):");
+                            let channelText = "WhatsApp";
+                            if(channel === "2") channelText = "Telegram";
+                            if(channel === "3") channelText = "WhatsApp e Telegram";
+                            
+                            alert(`Obrigado, ${name}! Você acaba de entrar para a Comunidade VIP Royal Crono.\n\nEm instantes você receberá uma mensagem no ${channelText} com as boas-vindas e sua primeira oferta exclusiva.`);
+                        }
+                    }
+                }
+            });
+        });
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                // Alterna a classe 'active' no botão
+                this.classList.toggle('active');
+                
+                // Encontra a resposta correspondente
+                const answer = this.nextElementSibling;
+                
+                // Alterna a classe 'show' na resposta
+                if (answer.classList.contains('show')) {
+                    answer.classList.remove('show');
+                } else {
+                    // Fecha outras respostas abertas (opcional)
+                    document.querySelectorAll('.faq-answer.show').forEach(openAnswer => {
+                        if (openAnswer !== answer) {
+                            openAnswer.classList.remove('show');
+                            openAnswer.previousElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    answer.classList.add('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
